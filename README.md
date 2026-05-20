@@ -2,14 +2,36 @@
 
 <div align="center">
 
-# AI-Powered Malicious URL Detection Engine
+### AI-Powered Malicious URL Detection Engine
 
-Detect phishing, malware, defacement, and suspicious URLs in real-time using machine learning.
+Detect phishing, malware, defacement, and suspicious URLs in real time using machine learning.
 
 🚀 **Live Demo:** https://threatshield-ai.onrender.com  
 💻 **GitHub Repository:** https://github.com/yash06rajput/malicious-url-detector
 
 </div>
+
+---
+
+## 📌 Overview
+
+ThreatShield AI is a machine learning-powered cybersecurity web application that analyzes URLs and predicts whether they are safe or potentially malicious.
+
+The system performs multiclass URL threat classification using lexical URL analysis, TF-IDF vectorization, and supervised machine learning to identify phishing attempts, malware distribution links, defacement URLs, and benign domains.
+
+Built as an end-to-end deployable product with a Flask backend, interactive frontend, trained ML pipeline, and live cloud deployment.
+
+---
+
+## 🎯 Key Features
+
+✅ Real-time malicious URL scanning  
+✅ Multiclass threat detection (Benign / Phishing / Malware / Defacement)  
+✅ Confidence score prediction  
+✅ Machine learning-powered classification engine  
+✅ Modern responsive cybersecurity-themed UI  
+✅ Live cloud deployment on Render  
+✅ Fast inference using pre-trained serialized model artifacts  
 
 ---
 
@@ -24,72 +46,73 @@ Detect phishing, malware, defacement, and suspicious URLs in real-time using mac
 ### Safe URL Detection
 ![Safe Detection](screenshots/safe.png)
 
-> Replace these images with your screenshots inside a `/screenshots` folder.
+### Model Training Performance
+![Model Performance](screenshots/model_performance.png)
 
 ---
 
-## ✨ Features
+## 📊 Model Performance
 
-✅ Real-time malicious URL scanning  
-✅ Detects phishing and suspicious domains  
-✅ Machine learning-powered classification engine  
-✅ Confidence score prediction  
-✅ Modern responsive cyber-themed UI  
-✅ Public live deployment  
-✅ Fast inference with pre-trained model  
-✅ Clean Flask backend architecture  
+ThreatShield AI was trained on a publicly available malicious URL dataset containing:
+
+**651,191 labeled URL samples**
+
+### Classification Classes
+- Benign
+- Phishing
+- Malware
+- Defacement
+
+### Dataset Split
+- **Training Set:** 520,952 samples
+- **Test Set:** 130,239 samples
+
+### Model Architecture
+**Logistic Regression + TF-IDF Vectorization + Engineered URL Features**
+
+### Performance Metrics
+
+| Metric | Score |
+|--------|-------|
+| Test Accuracy | **93.82%** |
+| Weighted Precision | **94%** |
+| Weighted Recall | **94%** |
+| Weighted F1 Score | **94%** |
+
+### Class-wise Performance
+
+| Class | Precision | Recall | F1 Score |
+|------|-----------|--------|----------|
+| Benign | 0.95 | 0.97 | 0.96 |
+| Defacement | 0.94 | 0.97 | 0.96 |
+| Malware | 0.96 | 0.85 | 0.90 |
+| Phishing | 0.84 | 0.77 | 0.81 |
 
 ---
 
-## 🌐 Live Demo
+## ⚙️ How It Works
 
-Try the live product here:
-
-### https://threatshield-ai.onrender.com
-
-Test URLs:
-
-**Malicious-like example**
-```bash
-http://secure-login-paypal.verify-user.ru
-```
-
-**Safe example**
-```bash
-https://google.com
-```
-
----
-
-## 🧠 How It Works
-
-ThreatShield AI analyzes submitted URLs using a trained machine learning model.
-
-Pipeline:
+ThreatShield AI follows this prediction pipeline:
 
 ```text
 User URL Input
       ↓
-Feature Extraction
+Lexical Feature Extraction
       ↓
-Text Vectorization (TF-IDF)
+TF-IDF Vectorization
+      ↓
+Feature Engineering
       ↓
 Machine Learning Classification
       ↓
 Confidence Scoring
       ↓
-Threat Verdict
+Threat Prediction Output
 ```
-
-The system determines whether the URL is:
-
-- 🟢 BENIGN
-- 🟠 SUSPICIOUS
-- 🔴 MALICIOUS (future version)
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Tech Stack
 
 ### Frontend
 - HTML5
@@ -97,13 +120,15 @@ The system determines whether the URL is:
 - JavaScript
 
 ### Backend
-- Flask
 - Python
+- Flask
 
 ### Machine Learning
 - Scikit-learn
-- TF-IDF Vectorization
-- Logistic Regression / Classification Model
+- TF-IDF Vectorizer
+- Logistic Regression
+- NumPy
+- Pandas
 
 ### Deployment
 - Render
@@ -115,9 +140,9 @@ The system determines whether the URL is:
 ```bash
 malicious-url-detector/
 │
-├── app.py                     # Flask application
-├── train_model.py            # Model training script
-├── feature_extractor.py      # Feature engineering
+├── app.py
+├── train_model.py
+├── feature_extractor.py
 ├── requirements.txt
 ├── README.md
 │
@@ -138,7 +163,7 @@ malicious-url-detector/
 
 ---
 
-## ⚙️ Installation & Local Setup
+## 🚀 Installation & Local Setup
 
 Clone the repository:
 
@@ -177,7 +202,7 @@ Run locally:
 python app.py
 ```
 
-Open:
+Open in browser:
 
 ```bash
 http://127.0.0.1:5000
@@ -185,92 +210,31 @@ http://127.0.0.1:5000
 
 ---
 
-## 🔬 Machine Learning Details
+## 🧪 Sample Test URLs
 
-ThreatShield AI uses:
-
-### Feature Engineering
-URL lexical analysis:
-- URL length
-- special characters
-- suspicious keyword patterns
-- domain structure
-- token characteristics
-
-### Vectorization
-TF-IDF vectorization converts URLs into numerical representations for model prediction.
-
-### Classification
-Supervised classification model trained to distinguish:
-- malicious URLs
-- benign URLs
-
----
-
-## 🎯 Example Results
-
-### Example 1
-
-Input:
+### Suspicious Example
 ```text
 http://secure-login-paypal.verify-user.ru
 ```
 
-Prediction:
-```text
-SUSPICIOUS
-Confidence: 97.92%
-```
-
----
-
-### Example 2
-
-Input:
+### Safe Example
 ```text
 https://google.com
 ```
 
-Prediction:
-```text
-BENIGN
-Confidence: 99%
-```
-
 ---
 
-## 🚀 Future Improvements
+## 🔮 Future Improvements
 
-Planned v2 upgrades:
-
-- WHOIS domain intelligence
+- WHOIS domain intelligence integration
 - DNS reputation analysis
 - VirusTotal API integration
-- XGBoost / LightGBM models
-- Deep learning URL classification
-- Browser extension integration
+- Browser extension version
+- Threat analytics dashboard
 - REST API endpoint
-- Threat history dashboard
-- Dark/light mode switch
 - User authentication
-
----
-
-## 🛠 Deployment
-
-ThreatShield AI is deployed on Render.
-
-Build command:
-
-```bash
-pip install -r requirements.txt
-```
-
-Start command:
-
-```bash
-gunicorn app:app
-```
+- Dark mode support
+- Advanced ensemble/deep learning models
 
 ---
 
@@ -280,21 +244,10 @@ gunicorn app:app
 
 B.Tech CSE | AI/ML Projects | Cybersecurity Enthusiast | Builder
 
-GitHub:
-https://github.com/yash06rajput
+GitHub: https://github.com/yash06rajput
 
 ---
 
-## ⭐ Support
+## 📄 License
 
-If you like this project:
-
-⭐ Star the repository  
-🍴 Fork it  
-🚀 Share it  
-
----
-
-## 📜 License
-
-This project is for educational and portfolio purposes.
+This project is intended for educational and portfolio purposes.
