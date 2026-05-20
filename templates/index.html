@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreatShield AI | Malicious URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="background-grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>ThreatShield AI</h1>
+            <p>
+                AI-powered malicious URL intelligence engine for detecting
+                phishing, malware, defacement, and benign domains in real time.
+            </p>
+        </section>
+
+        <section class="scanner-card">
+
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="Enter URL to scan (e.g. paypal-login-security.xyz)"
+                    autocomplete="off"
+                >
+                <button id="scanBtn">Scan URL</button>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing threat vectors...</p>
+            </div>
+
+            <div id="resultCard" class="result-card hidden">
+
+                <div class="result-header">
+                    <h2>Scan Result</h2>
+                    <span id="severityBadge" class="badge">UNKNOWN</span>
+                </div>
+
+                <div class="result-content">
+                    <p>
+                        <strong>URL:</strong>
+                        <span id="resultUrl"></span>
+                    </p>
+
+                    <p>
+                        <strong>Prediction:</strong>
+                        <span id="predictionText"></span>
+                    </p>
+
+                    <p>
+                        <strong>Confidence:</strong>
+                        <span id="confidenceText"></span>
+                    </p>
+
+                    <div class="confidence-bar">
+                        <div id="confidenceFill" class="confidence-fill"></div>
+                    </div>
+
+                    <div class="threat-message">
+                        <p id="threatMessage"></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="errorBox" class="error-box hidden"></div>
+
+        </section>
+
+        <section class="info-grid">
+
+            <div class="info-card">
+                <h3>Phishing Detection</h3>
+                <p>
+                    Detects credential theft patterns, fake login pages,
+                    suspicious domains, and impersonation URLs.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>Malware Analysis</h3>
+                <p>
+                    Identifies malware-hosting domains and suspicious
+                    payload distribution URLs.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>Defacement Detection</h3>
+                <p>
+                    Recognizes abnormal URL structures linked with
+                    compromised or defaced websites.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>

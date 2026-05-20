@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+url_dataset.csv
+malicious_phish.csv.zip
